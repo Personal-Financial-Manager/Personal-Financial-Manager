@@ -1,14 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/current_month_budget"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="@+id/btnBudgetPage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_home_background" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvBudgingPlanLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/current_month_budget"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvBudgetingPlanAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvBudgingPlanLabel"
+                tools:text="2500000" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBudgetPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_budget"
+                android:text="@string/budgeting"
+                android:textColor="@color/black"
+                app:backgroundTint="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/btnAddIncome"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBudgetingPlanAmount" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddIncome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_dollar"
+                android:text="@string/new_income"
+                android:textColor="@color/black"
+                app:backgroundTint="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/btnAddExpenses"
+                app:layout_constraintStart_toEndOf="@+id/btnBudgetPage"
+                app:layout_constraintTop_toBottomOf="@+id/tvBudgetingPlanAmount" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddExpenses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_plus"
+                android:text="@string/new_expenses"
+                android:textColor="@color/black"
+                app:backgroundTint="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnAddIncome"
+                app:layout_constraintTop_toBottomOf="@+id/tvBudgetingPlanAmount" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>
