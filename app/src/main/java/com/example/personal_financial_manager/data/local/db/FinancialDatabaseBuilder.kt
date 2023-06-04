@@ -1,4 +1,4 @@
-package com.example.personal_financial_manager.data.local
+package com.example.personal_financial_manager.data.local.db
 
 import android.content.Context
 import androidx.room.Room

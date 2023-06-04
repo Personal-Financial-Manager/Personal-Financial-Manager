@@ -1,4 +1,4 @@
-package com.example.personal_financial_manager.data.local
+package com.example.personal_financial_manager.data.local.expenses
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
