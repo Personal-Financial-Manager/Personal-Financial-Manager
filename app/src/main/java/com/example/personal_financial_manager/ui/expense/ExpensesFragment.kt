@@ -1,4 +1,4 @@
-package com.example.personal_financial_manager.ui.home.expense
+package com.example.personal_financial_manager.ui.expense
 
 import android.os.Bundle
 import android.view.LayoutInflater

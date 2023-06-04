@@ -1,4 +1,4 @@
-package com.example.personal_financial_manager.ui.home.budget
+package com.example.personal_financial_manager.ui.budget
 
 import androidx.lifecycle.ViewModel
 
