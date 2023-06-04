@@ -8,7 +8,43 @@
     <fragment
         android:id="@+id/homeContainerFragment"
         android:name="com.example.personal_financial_manager.ui.home.HomeContainerFragment"
-        android:label="HomeContainerFragment"
-        tools:layout="@layout/fragment_home_container"/>
+        android:label="HomeContainer"
+        tools:layout="@layout/fragment_home_container" >
+        <action
+            android:id="@+id/to_budgetListFragment"
+            app:destination="@id/budgetListFragment" />
+        <action
+            android:id="@+id/to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/to_expensesFragment"
+            app:destination="@id/expensesFragment" />
+        <action
+            android:id="@+id/to_incomesFragment"
+            app:destination="@id/incomesFragment" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.personal_financial_manager.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/budgetListFragment"
+        android:name="com.example.personal_financial_manager.ui.budget.BudgetListFragment"
+        android:label="Budget"
+        tools:layout="@layout/fragment_budget_list" />
+
+    <fragment
+        android:id="@+id/expensesFragment"
+        android:name="com.example.personal_financial_manager.ui.expense.ExpensesFragment"
+        android:label="Expenses"
+        tools:layout="@layout/fragment_expenses" />
+
+    <fragment
+        android:id="@+id/incomesFragment"
+        android:name="com.example.personal_financial_manager.ui.income.IncomesFragment"
+        android:label="Incomes"
+        tools:layout="@layout/fragment_incomes" />
 </navigation>
