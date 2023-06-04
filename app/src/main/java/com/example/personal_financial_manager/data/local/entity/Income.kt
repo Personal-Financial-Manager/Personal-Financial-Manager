@@ -8,8 +8,8 @@ import androidx.room.PrimaryKey
 data class Income(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "Title") val title: String,
-    @ColumnInfo(name = "Price") val price: Long,
+    @ColumnInfo(name = "Amount") val amount: Long,
     @ColumnInfo(name = "Date") val date: Long,
     @ColumnInfo(name = "Description") val description: String,
-    @ColumnInfo(name = "BudgetingCategory") val budgetingCategory: String,
+    @ColumnInfo(name = "Category") val category: String,
 )

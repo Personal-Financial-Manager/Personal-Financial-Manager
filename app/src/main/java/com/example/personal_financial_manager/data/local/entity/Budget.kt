@@ -5,11 +5,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class Budgeting(
+data class Budget(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "Title") val title: String,
-    @ColumnInfo(name = "Price") val price: Long,
+    @ColumnInfo(name = "Amount") val amount: Long,
     @ColumnInfo(name = "Date") val date: Long,
     @ColumnInfo(name = "Description") val description: String,
-    @ColumnInfo(name = "BudgetingCategory") val budgetingCategory: String,
+    @ColumnInfo(name = "Category") val category: String,
 )
