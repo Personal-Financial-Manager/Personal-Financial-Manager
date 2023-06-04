@@ -6,10 +6,10 @@ import androidx.room.Query
 import com.example.personal_financial_manager.data.local.entity.Income
 
 @Dao
-interface IncomeDoa {
+interface IncomeDao {
 
-    @Query("Select * from expenses")
-    suspend fun getAllIncome()
+    @Query("Select * from income")
+    suspend fun getAllIncome():List<Income>
 
     @Insert
     suspend fun insertIncome(income: Income)
