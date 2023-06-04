@@ -1,11 +1,11 @@
-package com.example.personal_financial_manager.data.local.expenses
+package com.example.personal_financial_manager.data.local.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class Expenses(
+data class Income(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "Title") val title: String,
     @ColumnInfo(name = "Price") val price: Long,
