@@ -26,7 +26,7 @@
                     android:layout_height="0dp"
                     android:contentDescription="@string/current_month_budget"
                     android:scaleType="fitXY"
-                    app:layout_constraintBottom_toBottomOf="@+id/btnBudgetPage"
+                    app:layout_constraintBottom_toBottomOf="@+id/viewMarginBelowButtons"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -36,6 +36,7 @@
                     android:id="@+id/tvBudgingPlanLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
                     android:text="@string/current_month_budget"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -48,9 +49,10 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                     app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="@dimen/_12sdp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvBudgingPlanLabel"
-                    tools:text="2500000" />
+                    android:text="2500000" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnBudgetPage"
@@ -58,6 +60,9 @@
                     android:layout_height="wrap_content"
                     android:drawableTop="@drawable/ic_budget"
                     android:text="@string/budgeting"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:paddingVertical="@dimen/_16sdp"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                     app:backgroundTint="@color/white"
                     app:layout_constraintEnd_toStartOf="@+id/btnAddIncome"
@@ -69,24 +74,39 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableTop="@drawable/ic_dollar"
+                    android:paddingVertical="@dimen/_16sdp"
                     android:text="@string/new_income"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                     app:backgroundTint="@color/white"
                     app:layout_constraintEnd_toStartOf="@+id/btnAddExpenses"
                     app:layout_constraintStart_toEndOf="@+id/btnBudgetPage"
-                    app:layout_constraintTop_toBottomOf="@+id/tvBudgetingPlanAmount" />
+                    app:layout_constraintTop_toTopOf="@+id/btnBudgetPage" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnAddExpenses"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                     android:drawableTop="@drawable/ic_plus"
+                    android:layout_marginEnd="@dimen/_16sdp"
                     android:text="@string/new_expenses"
+                    android:paddingVertical="@dimen/_16sdp"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                     app:backgroundTint="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/btnAddIncome"
-                    app:layout_constraintTop_toBottomOf="@+id/tvBudgetingPlanAmount" />
+                    app:layout_constraintTop_toTopOf="@+id/btnBudgetPage" />
+
+                <View
+                    android:id="@+id/viewMarginBelowButtons"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    app:layout_constraintTop_toBottomOf="@id/btnBudgetPage" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvExpensesList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/viewMarginBelowButtons" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </LinearLayout>
