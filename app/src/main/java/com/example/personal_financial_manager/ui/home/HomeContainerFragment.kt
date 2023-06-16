@@ -52,26 +52,16 @@ class HomeContainerFragment : Fragment() {
 
     private fun addOnNavigationItemSelected() {
         val viewPager = binding.viewPagerHomeContainerFragment
-        binding.bottomNavigationHomeContainerFragment.setOnItemSelectedListener  {
-            when (it.itemId) {
-                R.id.profileFragment -> {
-                    viewPager.currentItem = 0
-                    return@setOnItemSelectedListener true
-                }
-                R.id.budgetListFragment -> {
-                    viewPager.currentItem = 1
-                    return@setOnItemSelectedListener  true
-                }
-                R.id.ExpensesFragment -> {
-                    viewPager.currentItem = 2
-                    return@setOnItemSelectedListener  true
-                }
-                R.id.IncomesFragment -> {
-                    viewPager.currentItem = 3
-                    return@setOnItemSelectedListener  true
-                }
+        binding.bottomNavigationHomeContainerFragment.setOnItemSelectedListener { item ->
+            val currentItem = when (item.itemId) {
+                R.id.profileFragment -> 0
+                R.id.budgetListFragment -> 1
+                R.id.ExpensesFragment -> 2
+                R.id.IncomesFragment -> 3
+                else -> -1
             }
-            false
+            viewPager.currentItem = currentItem
+            currentItem != -1
         }
     }
 
