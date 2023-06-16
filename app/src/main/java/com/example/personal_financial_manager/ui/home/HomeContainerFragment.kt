@@ -15,11 +15,11 @@ class HomeContainerFragment : Fragment() {
     private var _binding: FragmentHomeContainerBinding? = null
     private val binding get() = _binding!!
 
+    private val viewModel: HomeContainerViewModel by viewModels()
+
     companion object {
         fun newInstance() = HomeContainerFragment()
     }
-
-    private val viewModel: HomeContainerViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home_container, container, false)
@@ -73,5 +73,10 @@ class HomeContainerFragment : Fragment() {
             }
             false
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
