@@ -7,9 +7,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.example.personal_financial_manager.R
 import com.example.personal_financial_manager.databinding.ActivityMainBinding
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

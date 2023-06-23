@@ -9,9 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.personal_financial_manager.R
 import com.example.personal_financial_manager.databinding.FragmentHomeContainerBinding
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class HomeContainerFragment : Fragment() {
 
     private var _binding: FragmentHomeContainerBinding? = null
