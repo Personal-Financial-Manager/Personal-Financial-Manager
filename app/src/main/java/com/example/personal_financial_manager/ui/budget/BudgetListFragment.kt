@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.personal_financial_manager.R
 import com.example.personal_financial_manager.databinding.FragmentBudgetListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BudgetListFragment : Fragment() {
 
     private var _binding: FragmentBudgetListBinding? = null
