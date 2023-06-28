@@ -8,4 +8,8 @@
     <string name="profile">Profile</string>
     <string name="budgets">Budgets</string>
     <string name="expenses">Expenses</string>
+
+
+<!--    Budget-->
+    <string name="enter_total_budget_hint">بودجه کلی خود را تعیین کنید</string>
 </resources>
