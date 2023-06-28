@@ -2,6 +2,7 @@ package com.example.personal_financial_manager.di
 
 import android.content.Context
 import androidx.room.Room
+import com.example.personal_financial_manager.data.local.dao.BudgetPlanDao
 import com.example.personal_financial_manager.data.local.dao.TotalBudgetDao
 import com.example.personal_financial_manager.data.local.dao.ExpenseDao
 import com.example.personal_financial_manager.data.local.dao.IncomeDao
@@ -33,12 +34,17 @@ class AppModule {
     }
 
     @Provides
-    fun provideBudgetingDao(financialDatabase: FinancialDatabase): TotalBudgetDao {
+    fun provideTotalBudgetDao(financialDatabase: FinancialDatabase): TotalBudgetDao {
         return financialDatabase.totalBudgetDao()
     }
 
     @Provides
     fun provideIncomeDao(financialDatabase: FinancialDatabase): IncomeDao {
         return financialDatabase.incomeDao()
+    }
+
+    @Provides
+    fun provideBudgetPlanDao(financialDatabase: FinancialDatabase): BudgetPlanDao {
+        return financialDatabase.budgetPlanDao()
     }
 }
