@@ -3,14 +3,14 @@ package com.example.personal_financial_manager.data.local.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.personal_financial_manager.data.local.entity.Income
+import com.example.personal_financial_manager.data.local.entity.IncomeEntity
 
 @Dao
 interface IncomeDao {
 
     @Query("Select * from income")
-    suspend fun getAllIncome():List<Income>
+    suspend fun getAllIncome():List<IncomeEntity>
 
     @Insert
-    suspend fun insertIncome(income: Income)
+    suspend fun insertIncome(incomeEntity: IncomeEntity)
 }
