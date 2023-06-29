@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.budget.BudgetListFragment">
 
     <data>
 
@@ -10,8 +11,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".ui.budget.BudgetListFragment">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -46,9 +47,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_36sdp"
                 android:layout_marginVertical="@dimen/_8sdp"
-                app:endIconDrawable="@drawable/ic_edit"
-                app:endIconTint="@color/black"
-                app:endIconMode="custom"
                 android:hint="@string/enter_total_budget_hint"
                 app:boxBackgroundColor="@color/white"
                 app:boxCornerRadiusBottomEnd="@dimen/_24sdp"
@@ -58,6 +56,9 @@
                 app:boxStrokeColor="@color/white"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
+                app:endIconDrawable="@drawable/ic_edit"
+                app:endIconMode="custom"
+                app:endIconTint="@color/black"
                 app:layout_constraintTop_toBottomOf="@+id/tvBudgingPlanLabel">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -72,12 +73,62 @@
                 android:layout_height="@dimen/_16sdp"
                 app:layout_constraintTop_toBottomOf="@id/tlMainBudget" />
 
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvBudgetMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/current_month_budget"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewMarginBelowButtons" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBudgetingHistory"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:backgroundTint="@color/sea_shell"
+                app:cornerRadius="@dimen/_4sdp"
+                app:icon="@drawable/ic_clock"
+                app:iconTint="@color/black"
+                app:layout_constraintBottom_toBottomOf="@id/tvBudgetMonth"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvBudgetMonth" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvNoBudgetPlan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/current_month_budget"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewMarginBelowButtons"
+                tools:text="لطفا بودجه بندی کن" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvExpensesList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
-                app:layout_constraintTop_toBottomOf="@+id/viewMarginBelowButtons" />
+                android:layout_marginTop="@dimen/_20sdp"
+                app:layout_constraintTop_toBottomOf="@+id/tvBudgetMonth" />
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fabAddBudgetPlan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                app:backgroundTint="@color/colorPrimary"
+                app:icon="@drawable/ic_plus"
+                app:iconTint="@color/black"
+                app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>
