@@ -4,6 +4,7 @@ buildscript {
         google()
         mavenCentral()
         gradlePluginPortal()
+        maven { url 'https://jitpack.io' }
     }
 // Apply the dependencies.versions.gradle file
     apply from: 'app/dependencies.versions.gradle'
