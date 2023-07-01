@@ -27,6 +27,21 @@ class BudgetListFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setOnClickListener()
+        setupMonth()
+    }
+
+    private fun setupMonth() {
+        binding.tvBudgetMonth.
+    }
+
+    private fun setOnClickListener() {
+        binding.fabAddBudgetPlan.setOnClickListener {  }
+        binding.btnBudgetingHistory.setOnClickListener {  }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
