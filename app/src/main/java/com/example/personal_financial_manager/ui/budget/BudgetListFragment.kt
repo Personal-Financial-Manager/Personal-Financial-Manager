@@ -34,7 +34,7 @@ class BudgetListFragment : Fragment() {
     }
 
     private fun setupMonth() {
-        binding.tvBudgetMonth.
+        binding.tvBudgetMonth
     }
 
     private fun setOnClickListener() {
