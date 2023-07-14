@@ -12,4 +12,11 @@
 
 <!--    Budget-->
     <string name="enter_total_budget_hint">بودجه کلی خود را تعیین کنید</string>
+    <string name="enter_budget">هنوز بودجه بندی نکردی!</string>
+
+
+<!--    Money-->
+    <string name="rial">ریال</string>
+    <string name="toman">تومان</string>
+    <string name="money_separator"><b>%,d</b> %s</string>
 </resources>

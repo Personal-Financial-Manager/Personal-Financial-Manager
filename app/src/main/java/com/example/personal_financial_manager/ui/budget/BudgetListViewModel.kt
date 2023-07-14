@@ -4,23 +4,24 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.personal_financial_manager.data.BudgetPlanRepository
+import com.example.personal_financial_manager.R
+import com.example.personal_financial_manager.data.enum.MoneyUnit
 import com.example.personal_financial_manager.di.JalalliCalendar1
 import com.example.personal_financial_manager.usecase.budget.TotalBudgetUseCase
 import com.example.personal_financial_manager.util.CalendarInterface
-import com.example.personal_financial_manager.util.JalalliCalendarHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
 class BudgetListViewModel @Inject constructor(
-    val budgetPlanRepository: BudgetPlanRepository,
-    val totalBudgetUseCase: TotalBudgetUseCase,
-    @JalalliCalendar1 val jalalliCalendarHelper: CalendarInterface
+    private val totalBudgetUseCase: TotalBudgetUseCase,
+    @JalalliCalendar1 private val jalalliCalendarHelper: CalendarInterface,
 ) : ViewModel() {
 
-    var _budgetInfoUiState = MutableLiveData<BudgetInfo>()
+    private var _budgetInfoUiState = MutableLiveData<BudgetInfo>()
     var budgetInfoUiState: LiveData<BudgetInfo> = _budgetInfoUiState
 
     init {
@@ -33,19 +34,26 @@ class BudgetListViewModel @Inject constructor(
             val totalBudgetForSpecificDate =
                 totalBudgetUseCase.getTotalBudgetForSpecificDate(currentDateTime.dateModel.year,
                     currentDateTime.dateModel.month)
-//            withContext(Dispatchers.Main){
-//                totalBudgetForSpecificDate?.let {
-//                    _budgetInfoUiState.value=BudgetInfo(
-//                        totalBudgetForSpecificDate.budgetAmount
-//                    )
-//                }
+            withContext(Dispatchers.Main) {
+                totalBudgetForSpecificDate?.let {
+                    _budgetInfoUiState.value = BudgetInfo(
+                        totalBudgetForSpecificDate.budgetAmount,
+                        jalalliCalendarHelper.getCurrentMonthName())
+                } ?: apply {
+                    _budgetInfoUiState.value = BudgetInfo(
+                        0,
+                        jalalliCalendarHelper.getCurrentMonthName(),
+                        R.string.enter_budget
+                    )
+                }
+            }
         }
     }
 
     data class BudgetInfo(
         val totalBudgetAmount: Long,
         val monthName: String,
-        val showEmptyPageText: String,
+        val showEmptyPageText: Int? = null,
+        val moneyUnit: MoneyUnit = MoneyUnit.TOMAN,
     )
-
 }

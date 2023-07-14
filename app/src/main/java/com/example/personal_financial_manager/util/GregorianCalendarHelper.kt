@@ -8,14 +8,14 @@ import saman.zamani.persiandate.PersianDate
 import javax.inject.Inject
 
 @GregorianCalendar2
-public class GregorianCalendarHelper @Inject constructor(val persianDate: PersianDate) :CalendarInterface{
+class GregorianCalendarHelper @Inject constructor(private val persianDate: PersianDate) : CalendarInterface {
 
     override fun getCurrentDateTime(): DateTimeModel {
         return DateTimeModel(
             DateModel(
-                persianDate.shYear,
-                persianDate.shMonth,
-                persianDate.shDay
+                persianDate.grgYear,
+                persianDate.grgMonth,
+                persianDate.grgDay
             ),
             TimeModel(
                 persianDate.hour,
@@ -23,5 +23,9 @@ public class GregorianCalendarHelper @Inject constructor(val persianDate: Persia
                 persianDate.second
             )
         )
+    }
+
+    override fun getCurrentMonthName(): String {
+        return persianDate.grgMonthName
     }
 }

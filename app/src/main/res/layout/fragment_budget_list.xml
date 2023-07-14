@@ -42,7 +42,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tlMainBudget"
+                android:id="@+id/tlTotalBudgetAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_36sdp"
@@ -62,6 +62,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvBudgingPlanLabel">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTotalBudgetAmount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -71,7 +72,7 @@
                 android:id="@+id/viewMarginBelowButtons"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_16sdp"
-                app:layout_constraintTop_toBottomOf="@id/tlMainBudget" />
+                app:layout_constraintTop_toBottomOf="@id/tlTotalBudgetAmount" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvBudgetMonth"
@@ -102,13 +103,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/current_month_budget"
+                android:visibility="gone"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/viewMarginBelowButtons"
-                tools:text="لطفا بودجه بندی کن" />
+                android:text="@string/enter_budget" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvExpensesList"

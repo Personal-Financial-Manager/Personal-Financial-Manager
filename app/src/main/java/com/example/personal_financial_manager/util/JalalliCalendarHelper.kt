@@ -8,7 +8,7 @@ import saman.zamani.persiandate.PersianDate
 import javax.inject.Inject
 
 @JalalliCalendar1
-public class JalalliCalendarHelper @Inject constructor( val persianDate: PersianDate ) :CalendarInterface{
+class JalalliCalendarHelper @Inject constructor(private val persianDate: PersianDate) : CalendarInterface {
 
     override fun getCurrentDateTime(): DateTimeModel {
         return DateTimeModel(
@@ -24,4 +24,9 @@ public class JalalliCalendarHelper @Inject constructor( val persianDate: Persian
             )
         )
     }
+
+    override fun getCurrentMonthName(): String {
+       return persianDate.monthName
+    }
+
 }
