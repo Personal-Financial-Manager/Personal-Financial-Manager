@@ -18,5 +18,6 @@
 <!--    Money-->
     <string name="rial">ریال</string>
     <string name="toman">تومان</string>
+    <string name="dollar_sign">$</string>
     <string name="money_separator"><b>%,d</b> %s</string>
 </resources>
