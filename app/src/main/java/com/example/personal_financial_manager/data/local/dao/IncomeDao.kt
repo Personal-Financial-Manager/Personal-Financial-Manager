@@ -8,7 +8,7 @@ import com.example.personal_financial_manager.data.local.entity.IncomeEntity
 @Dao
 interface IncomeDao {
 
-    @Query("Select * from income")
+    @Query("Select * from IncomeEntity")
     suspend fun getAllIncome():List<IncomeEntity>
 
     @Insert

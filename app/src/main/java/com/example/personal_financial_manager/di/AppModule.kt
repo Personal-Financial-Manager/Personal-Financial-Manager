@@ -29,21 +29,25 @@ class AppModule {
     }
 
     @Provides
+    @Singleton
     fun provideExpensesDao(financialDatabase: FinancialDatabase): ExpenseDao {
         return financialDatabase.expenseDao()
     }
 
     @Provides
+    @Singleton
     fun provideTotalBudgetDao(financialDatabase: FinancialDatabase): TotalBudgetDao {
         return financialDatabase.totalBudgetDao()
     }
 
     @Provides
+    @Singleton
     fun provideIncomeDao(financialDatabase: FinancialDatabase): IncomeDao {
         return financialDatabase.incomeDao()
     }
 
     @Provides
+    @Singleton
     fun provideBudgetPlanDao(financialDatabase: FinancialDatabase): BudgetPlanDao {
         return financialDatabase.budgetPlanDao()
     }
