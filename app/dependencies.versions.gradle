@@ -12,7 +12,7 @@ ext {
     espressoVersion = "3.5.1"
 
     // Dependency Injection - Hilt
-    hiltVersion = "2.44"
+    hiltVersion = "2.46"
 
     // Navigation
     navigationVersion = "2.5.3"
@@ -27,5 +27,5 @@ ext {
     lifecycleVersion = "2.6.1"
 
     // Room
-    roomVersion = "2.6.0-alpha01"
+    roomVersion = "2.6.0-alpha02"
 }
