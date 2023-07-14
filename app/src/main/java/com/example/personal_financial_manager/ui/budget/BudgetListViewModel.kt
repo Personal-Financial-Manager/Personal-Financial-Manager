@@ -15,20 +15,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BudgetListViewModel @Inject constructor(
-
+    val budgetPlanRepository: BudgetPlanRepository,
+    val totalBudgetUseCase: TotalBudgetUseCase,
+    @JalalliCalendar1 val jalalliCalendarHelper: CalendarInterface
 ) : ViewModel() {
-    @JalalliCalendar1
-    @Inject
-    lateinit var jalalliCalendarHelper: CalendarInterface
 
     var _budgetInfoUiState = MutableLiveData<BudgetInfo>()
     var budgetInfoUiState: LiveData<BudgetInfo> = _budgetInfoUiState
-
-    @Inject
-    lateinit var totalBudgetUseCase: TotalBudgetUseCase
-
-    @Inject
-    lateinit var budgetPlanRepository: BudgetPlanRepository
 
     init {
         isUserSetBudget()
