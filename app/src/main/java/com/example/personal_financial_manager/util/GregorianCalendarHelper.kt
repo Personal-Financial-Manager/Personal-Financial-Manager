@@ -12,17 +12,8 @@ class GregorianCalendarHelper @Inject constructor(private val persianDate: Persi
 
     override fun getCurrentDateTime(): DateTimeModel {
         return DateTimeModel(
-            DateModel(
-                persianDate.grgYear,
-                persianDate.grgMonth,
-                persianDate.grgDay
-            ),
-            TimeModel(
-                persianDate.hour,
-                persianDate.minute,
-                persianDate.second
-            )
-        )
+            DateModel(persianDate.grgYear, persianDate.grgMonth, persianDate.grgDay),
+            TimeModel(persianDate.hour, persianDate.minute, persianDate.second))
     }
 
     override fun getCurrentMonthName(): String {
