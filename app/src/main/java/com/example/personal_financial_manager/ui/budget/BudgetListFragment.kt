@@ -1,10 +1,10 @@
 package com.example.personal_financial_manager.ui.budget
 
 import android.os.Bundle
-import android.text.Html.fromHtml
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -61,7 +61,7 @@ class BudgetListFragment : Fragment() {
     }
 
     private fun observePageDetail() {
-        viewModel.budgetInfoUiState.observe(viewLifecycleOwner) {
+        viewModel.budgetUiState.observe(viewLifecycleOwner) {
             maybeNoBudgetPlanInPage(it.showEmptyPageText)
             maybeNoTotalBudget(it.totalBudgetAmount, it.moneyUnit)
             setupMonth()
@@ -79,7 +79,7 @@ class BudgetListFragment : Fragment() {
     private fun getTotalBudgetAmountText(totalBudgetAmount: Long, moneyUnit: MoneyUnit): String {
         val amountWithCommaSeparator =
             String.format(getString(R.string.money_separator), totalBudgetAmount, getString(moneyUnit.value))
-        return fromHtml(amountWithCommaSeparator).toString()
+        return HtmlCompat.fromHtml(amountWithCommaSeparator, HtmlCompat.FROM_HTML_MODE_COMPACT).toString()
     }
 
     private fun maybeNoBudgetPlanInPage(showEmptyPageText: Int?) {

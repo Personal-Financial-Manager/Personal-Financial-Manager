@@ -12,17 +12,8 @@ class JalalliCalendarHelper @Inject constructor(private val persianDate: Persian
 
     override fun getCurrentDateTime(): DateTimeModel {
         return DateTimeModel(
-            DateModel(
-                persianDate.shYear,
-                persianDate.shMonth,
-                persianDate.shDay
-            ),
-            TimeModel(
-                persianDate.hour,
-                persianDate.minute,
-                persianDate.second
-            )
-        )
+            DateModel(persianDate.shYear, persianDate.shMonth, persianDate.shDay),
+            TimeModel(persianDate.hour, persianDate.minute, persianDate.second))
     }
 
     override fun getCurrentMonthName(): String {
