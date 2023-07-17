@@ -31,13 +31,13 @@ class BudgetListViewModel @Inject constructor(
     private fun isUserSetBudget() {
         viewModelScope.launch {
             val currentDateTime = jalalliCalendarHelper.getCurrentDateTime()
-            val totalBudgetForSpecificDate =
+            val budget =
                 totalBudgetUseCase.getTotalBudgetForSpecificDate(currentDateTime.dateModel.year,
                     currentDateTime.dateModel.month)
             withContext(Dispatchers.Main) {
-                totalBudgetForSpecificDate?.let {
+                budget?.let {
                     _budgetInfoUiState.value = BudgetInfo(
-                        totalBudgetForSpecificDate.budgetAmount,
+                        budget.amount,
                         jalalliCalendarHelper.getCurrentMonthName())
                 } ?: apply {
                     _budgetInfoUiState.value = BudgetInfo(
