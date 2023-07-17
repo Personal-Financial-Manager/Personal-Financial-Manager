@@ -6,8 +6,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class ExpensesViewModel @Inject constructor(
-    private val useCase: ExpensesUseCase,
-) : ViewModel() {
+class ExpensesViewModel @Inject constructor(private val useCase: ExpensesUseCase) : ViewModel() {
 
 }
