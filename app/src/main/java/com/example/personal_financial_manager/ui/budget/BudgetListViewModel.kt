@@ -63,7 +63,7 @@ class BudgetListViewModel @Inject constructor(
 //        }
     }
 
-    data class BudgetInfo(
+    data class BudgetUiState(
         val totalBudgetAmount: Long,
         val monthName: String,
         val showEmptyPageText: Int? = null,
