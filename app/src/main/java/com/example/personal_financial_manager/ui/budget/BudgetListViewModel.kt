@@ -21,8 +21,8 @@ class BudgetListViewModel @Inject constructor(
     @JalalliCalendar1 private val jalalliCalendarHelper: CalendarInterface,
 ) : ViewModel() {
 
-    private var _budgetInfoUiState = MutableLiveData<BudgetInfo>()
-    var budgetInfoUiState: LiveData<BudgetInfo> = _budgetInfoUiState
+    private var _budgetUiState = MutableLiveData<BudgetUiState>()
+    var budgetUiState: LiveData<BudgetUiState> = _budgetUiState
 
     init {
         isUserSetBudget()
@@ -36,9 +36,9 @@ class BudgetListViewModel @Inject constructor(
                     currentDateTime.dateModel.month)
             withContext(Dispatchers.Main) {
                 budget?.let {
-                    _budgetInfoUiState.value = BudgetInfo(it.amount, jalalliCalendarHelper.getCurrentMonthName())
+                    _budgetUiState.value = BudgetUiState(it.amount, jalalliCalendarHelper.getCurrentMonthName())
                 } ?: apply {
-                    _budgetInfoUiState.value = BudgetInfo(
+                    _budgetUiState.value = BudgetUiState(
                         0,
                         jalalliCalendarHelper.getCurrentMonthName(),
                         R.string.enter_budget)
@@ -47,7 +47,7 @@ class BudgetListViewModel @Inject constructor(
         }
     }
 
-    data class BudgetInfo(
+    data class BudgetUiState(
         val totalBudgetAmount: Long,
         val monthName: String,
         val showEmptyPageText: Int? = null,
