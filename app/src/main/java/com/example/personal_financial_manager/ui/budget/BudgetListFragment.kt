@@ -12,7 +12,9 @@ import androidx.fragment.app.viewModels
 import com.example.personal_financial_manager.R
 import com.example.personal_financial_manager.data.enum.MoneyUnit
 import com.example.personal_financial_manager.databinding.FragmentBudgetListBinding
+import com.example.personal_financial_manager.ui.commondialog.AttentionDialog
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class BudgetListFragment : Fragment() {
@@ -35,8 +37,27 @@ class BudgetListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setOnClickListener()
+        setTotalBudgetActionDone()
         observePageDetail()
+        observeBudgetValidation()
         setupMonth()
+    }
+
+    private fun observeBudgetValidation() {
+        viewModel.budgetValidationUiState.observe(viewLifecycleOwner) {
+            if (it.errorDescription != null && it.errorTitle != null) {
+                val editNameDialogFragment: AttentionDialog =
+                    AttentionDialog.newInstance(getString(it.errorTitle), getString(it.errorDescription))
+                editNameDialogFragment.show(parentFragmentManager, "dialogFragmentAttention")
+            }
+        }
+    }
+
+    private fun setTotalBudgetActionDone() {
+        binding.etTotalBudgetAmount.setOnEditorActionListener { textView, _, _ ->
+            viewModel.updateTotalBudgetAmount(textView.text.toString())
+            true
+        }
     }
 
     private fun observePageDetail() {

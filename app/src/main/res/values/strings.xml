@@ -8,14 +8,15 @@
     <string name="profile">Profile</string>
     <string name="budgets">Budgets</string>
     <string name="expenses">Expenses</string>
+    <string name="confirm">تایید</string>
+    <string name="attention">توجه</string>
 
-
-<!--    Budget-->
+<!--Budget-->
     <string name="enter_total_budget_hint">بودجه کلی خود را تعیین کنید</string>
     <string name="enter_budget">هنوز بودجه بندی نکردی!</string>
 
 
-<!--    Money-->
+<!--Money-->
     <string name="rial">ریال</string>
     <string name="toman">تومان</string>
     <string name="dollar_sign">$</string>

@@ -64,7 +64,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etTotalBudgetAmount"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -103,13 +104,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:visibility="gone"
+                android:text="@string/enter_budget"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/viewMarginBelowButtons"
-                android:text="@string/enter_budget" />
+                app:layout_constraintTop_toBottomOf="@+id/viewMarginBelowButtons" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvExpensesList"
