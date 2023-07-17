@@ -36,15 +36,12 @@ class BudgetListViewModel @Inject constructor(
                     currentDateTime.dateModel.month)
             withContext(Dispatchers.Main) {
                 budget?.let {
-                    _budgetInfoUiState.value = BudgetInfo(
-                        budget.amount,
-                        jalalliCalendarHelper.getCurrentMonthName())
+                    _budgetInfoUiState.value = BudgetInfo(it.amount, jalalliCalendarHelper.getCurrentMonthName())
                 } ?: apply {
                     _budgetInfoUiState.value = BudgetInfo(
                         0,
                         jalalliCalendarHelper.getCurrentMonthName(),
-                        R.string.enter_budget
-                    )
+                        R.string.enter_budget)
                 }
             }
         }
