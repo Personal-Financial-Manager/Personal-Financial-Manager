@@ -18,4 +18,8 @@
         <item name="cornerSizeBottomLeft">@dimen/_16sdp</item>
         <item name="cornerSizeBottomRight">@dimen/_16sdp</item>
     </style>
+
+    <style name="MyDialogStyle" parent="Theme.MaterialComponents.Dialog">
+        <item name="android:layout_width">match_parent</item>
+    </style>
 </resources>
