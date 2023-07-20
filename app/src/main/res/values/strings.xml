@@ -13,6 +13,8 @@
 
 <!--Budget-->
     <string name="enter_total_budget_hint">بودجه کلی خود را تعیین کنید</string>
+    <string name="enter_total_budget_is_less_than_budget_plan">بودجه ای که تعیین کردید از بودجه بندی ای که کردید کمتره</string>
+    <string name="enter_total_budget_is_more_than_budget_plan">بودجه شما %d %s افزایش پیدا کرده است. میتونی این مقدار پول جدید رو پلن کنی</string>
     <string name="enter_budget">هنوز بودجه بندی نکردی!</string>
 
 

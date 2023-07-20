@@ -47,7 +47,7 @@ class BudgetListFragment : Fragment() {
         viewModel.budgetValidationUiState.observe(viewLifecycleOwner) {
             if (it.errorDescription != null && it.errorTitle != null) {
                 val editNameDialogFragment: AttentionDialog =
-                    AttentionDialog.newInstance(getString(it.errorTitle), getString(it.errorDescription))
+                    AttentionDialog.newInstance(it.errorTitle, it.errorDescription)
                 editNameDialogFragment.show(parentFragmentManager, "dialogFragmentAttention")
             }
         }

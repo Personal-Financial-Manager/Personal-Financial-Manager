@@ -2,6 +2,7 @@ package com.example.personal_financial_manager.data
 
 import com.example.personal_financial_manager.data.local.dao.TotalBudgetDao
 import com.example.personal_financial_manager.data.local.entity.TotalBudgetEntity
+import com.example.personal_financial_manager.data.model.mapToTotalBudget
 import javax.inject.Inject
 
 class TotalBudgetRepository @Inject constructor(private val totalBudgetDao: TotalBudgetDao) {

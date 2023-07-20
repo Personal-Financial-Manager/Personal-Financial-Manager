@@ -70,7 +70,10 @@ class AttentionDialog : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.tvTitle.text = title
         binding.tvDescription.text = description
-        binding.btnConfirm.setOnClickListener { mListener?.onConfirmDialog() }
+        binding.btnConfirm.setOnClickListener {
+            mListener?.onConfirmDialog()
+            dismiss()
+        }
     }
 
     interface DialogListener {
