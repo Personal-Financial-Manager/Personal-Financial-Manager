@@ -58,6 +58,13 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$extJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    // (Required) Writing and executing Unit Tests on the JUnit Platform
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junit5Version")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junit5Version")
+    // (Optional) If you need "Parameterized Tests"
+    testImplementation("org.junit.jupiter:junit-jupiter-params:$junit5Version")
+    // (Optional) If you also have JUnit 4-based tests
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:$junit5Version")
 
     // Dependency Injection - Hilt
     implementation "com.google.dagger:hilt-android:$hiltVersion"
@@ -89,5 +96,4 @@ dependencies {
 
     //Persian Calendar
     implementation 'com.github.samanzamani:PersianDate:1.6.1'
-
 }
