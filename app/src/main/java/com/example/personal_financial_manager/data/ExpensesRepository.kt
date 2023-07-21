@@ -1,7 +1,7 @@
 package com.example.personal_financial_manager.data
 
-import javax.inject.Inject
+import com.example.personal_financial_manager.data.local.entity.Expense
 
-class ExpensesRepository @Inject constructor() {
-
+interface ExpensesRepository {
+    fun getExpenses(): List<Expense>
 }
