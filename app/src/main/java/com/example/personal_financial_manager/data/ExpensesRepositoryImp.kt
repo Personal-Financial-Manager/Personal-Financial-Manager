@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 class ExpensesRepositoryImp @Inject constructor(): ExpensesRepository {
 
-    override fun getExpenses(): List<Expense> {
+    override fun fetchExpenses(): List<Expense> {
         return listOf()
     }
 }
