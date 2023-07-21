@@ -11,6 +11,7 @@ ext {
     extJunitVersion = "1.1.5"
     espressoVersion = "3.5.1"
     junit5Version = "5.9.3"
+    mockitoVersion = "5.4.0"
 
     // Dependency Injection - Hilt
     hiltVersion = "2.46.1"
