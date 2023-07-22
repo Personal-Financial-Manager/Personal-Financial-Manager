@@ -10,6 +10,7 @@ buildscript {
     apply from: 'app/dependencies.versions.gradle'
     dependencies {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
+        classpath("de.mannodermaus.gradle.plugins:android-junit5:1.9.3.0")
     }
 }
 plugins {
