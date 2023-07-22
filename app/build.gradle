@@ -43,6 +43,11 @@ android {
         viewBinding true
         dataBinding true
     }
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
 }
 
 apply from: 'dependencies.versions.gradle'
@@ -56,7 +61,6 @@ dependencies {
 
     // Testing
     testImplementation "junit:junit:$junitVersion"
-    testImplementation 'org.junit.jupiter:junit-jupiter'
     androidTestImplementation "androidx.test.ext:junit:$extJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
     // (Required) Writing and executing Unit Tests on the JUnit Platform
@@ -68,7 +72,6 @@ dependencies {
     testRuntimeOnly("org.junit.vintage:junit-vintage-engine:$junit5Version")
     // Mockito
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
-    testImplementation "org.mockito:mockito-inline:$mockitoVersion"
 
     // Dependency Injection - Hilt
     implementation "com.google.dagger:hilt-android:$hiltVersion"
