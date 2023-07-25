@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class ExpensesUseCase @Inject constructor(private val repository: ExpensesRepository) {
 
-    fun fetchExpenses(): List<Expense>{
+    suspend fun fetchExpenses(): List<Expense> {
         return repository.fetchExpenses()
     }
 }
