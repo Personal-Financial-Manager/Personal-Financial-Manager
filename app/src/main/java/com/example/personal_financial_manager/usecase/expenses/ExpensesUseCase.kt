@@ -9,4 +9,20 @@ class ExpensesUseCase @Inject constructor(private val repository: ExpensesReposi
     suspend fun fetchExpenses(): List<Expense> {
         return repository.fetchExpenses()
     }
+
+    suspend fun insertExpense(expense: Expense): Long {
+        return repository.insertExpense(expense)
+    }
+
+    suspend fun updateExpenses(expense: Expense): Long {
+        return repository.updateExpense(expense)
+    }
+
+    suspend fun deleteExpenses(expense: Expense): Long {
+        return repository.deleteExpense(expense)
+    }
+
+    suspend fun deleteAllExpenses(): Long {
+        return repository.deleteAllExpense()
+    }
 }

@@ -35,4 +35,20 @@ class ExpensesRepositoryTestDouble() : ExpensesRepository {
     override suspend fun fetchExpenses(): List<Expense> {
         return listOf()
     }
+
+    override suspend fun insertExpense(expense: Expense): Long {
+        return 0
+    }
+
+    override suspend fun updateExpense(expense: Expense): Long {
+        return 0
+    }
+
+    override suspend fun deleteExpense(expense: Expense): Long {
+        return 0
+    }
+
+    override suspend fun deleteAllExpense(): Long {
+        return 0
+    }
 }
