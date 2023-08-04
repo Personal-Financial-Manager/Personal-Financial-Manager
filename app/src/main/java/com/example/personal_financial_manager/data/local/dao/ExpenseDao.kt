@@ -15,7 +15,10 @@ interface ExpenseDao {
     suspend fun fetchExpenses(): List<Expense>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertExpenses(expense: Expense): Long
+    suspend fun insertExpense(expense: Expense): Long
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertExpenses(vararg expenses: Expense): List<Long>
 
     @Update
     suspend fun updateExpense(expense: Expense): Int

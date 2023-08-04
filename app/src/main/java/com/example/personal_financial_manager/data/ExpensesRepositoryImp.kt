@@ -12,7 +12,11 @@ class ExpensesRepositoryImp @Inject constructor(database: FinancialDatabase) : E
     }
 
     override suspend fun insertExpense(expense: Expense): Long {
-        return expensesDao.insertExpenses(expense)
+        return expensesDao.insertExpense(expense)
+    }
+
+    override suspend fun insertExpenses(vararg expenses: Expense): List<Long> {
+        return expensesDao.insertExpenses(*expenses)
     }
 
     override suspend fun updateExpense(expense: Expense): Int {

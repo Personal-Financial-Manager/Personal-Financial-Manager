@@ -40,6 +40,10 @@ class ExpensesRepositoryTestDouble() : ExpensesRepository {
         TODO("Not implemented")
     }
 
+    override suspend fun insertExpenses(vararg expenses: Expense): List<Long> {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun updateExpense(expense: Expense): Int {
         TODO("Not implemented")
     }
