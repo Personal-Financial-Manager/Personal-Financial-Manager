@@ -42,7 +42,6 @@ class ExpensesFragment : Fragment() {
     private fun initOnClickListeners() {
         binding.fabExpenses.setOnClickListener {
             Toast.makeText(requireContext(), "Test", Toast.LENGTH_SHORT).show()
-            viewModel.test()
         }
     }
 

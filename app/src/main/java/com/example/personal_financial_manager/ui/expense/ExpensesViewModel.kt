@@ -10,10 +10,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ExpensesViewModel @Inject constructor(private val useCase: ExpensesUseCase) : ViewModel() {
-    // todo: delete this.
-    fun test() {
-        viewModelScope.launch(Dispatchers.IO) {
-            useCase.fetchExpenses()
-        }
-    }
+
 }
