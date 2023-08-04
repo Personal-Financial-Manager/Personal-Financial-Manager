@@ -37,18 +37,18 @@ class ExpensesRepositoryTestDouble() : ExpensesRepository {
     }
 
     override suspend fun insertExpense(expense: Expense): Long {
-        return 0
+        TODO("Not implemented")
     }
 
     override suspend fun updateExpense(expense: Expense): Int {
-        return 0
+        TODO("Not implemented")
     }
 
     override suspend fun deleteExpense(expense: Expense): Int {
-        return 0
+        TODO("Not implemented")
     }
 
     override suspend fun deleteAllExpense(): Int {
-        return 0
+        TODO("Not implemented")
     }
 }
