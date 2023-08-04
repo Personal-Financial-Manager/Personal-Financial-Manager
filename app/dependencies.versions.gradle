@@ -30,4 +30,7 @@ ext {
 
     // Room
     roomVersion = "2.6.0-alpha02"
+
+    // java 8 support version
+    supportJava8Version = "2.0.3"
 }
