@@ -40,15 +40,15 @@ class ExpensesRepositoryTestDouble() : ExpensesRepository {
         return 0
     }
 
-    override suspend fun updateExpense(expense: Expense): Long {
+    override suspend fun updateExpense(expense: Expense): Int {
         return 0
     }
 
-    override suspend fun deleteExpense(expense: Expense): Long {
+    override suspend fun deleteExpense(expense: Expense): Int {
         return 0
     }
 
-    override suspend fun deleteAllExpense(): Long {
+    override suspend fun deleteAllExpense(): Int {
         return 0
     }
 }

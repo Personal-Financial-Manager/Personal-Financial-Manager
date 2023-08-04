@@ -15,15 +15,15 @@ class ExpensesRepositoryImp @Inject constructor(database: FinancialDatabase) : E
         return expensesDao.insertExpenses(expense)
     }
 
-    override suspend fun updateExpense(expense: Expense): Long {
+    override suspend fun updateExpense(expense: Expense): Int {
         return expensesDao.updateExpense(expense)
     }
 
-    override suspend fun deleteExpense(expense: Expense): Long {
+    override suspend fun deleteExpense(expense: Expense): Int {
         return expensesDao.deleteExpense(expense)
     }
 
-    override suspend fun deleteAllExpense(): Long {
+    override suspend fun deleteAllExpense(): Int {
         return expensesDao.deleteAllExpenses()
     }
 }
