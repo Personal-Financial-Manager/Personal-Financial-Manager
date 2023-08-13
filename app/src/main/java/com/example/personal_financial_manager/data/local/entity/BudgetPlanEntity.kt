@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey
     childColumns = arrayOf("BudgetMainFk"),
     onDelete = ForeignKey.CASCADE)])
 data class BudgetPlanEntity(
-    @PrimaryKey val id: Int,
+    @PrimaryKey(autoGenerate = true)  val id: Int,
     @ColumnInfo(name = "BudgetMainFk") val budgetMainFk: Int,
     @ColumnInfo(name = "Title") val title: String,
     @ColumnInfo(name = "Icon") val icon: Int,
