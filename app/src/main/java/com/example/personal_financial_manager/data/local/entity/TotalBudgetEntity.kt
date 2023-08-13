@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class TotalBudgetEntity(
-    @PrimaryKey val id: Int,
+    @PrimaryKey(autoGenerate = true)  val id: Int,
     @ColumnInfo(name = "Year") val year: Int,
     @ColumnInfo(name = "Month") val month: Int,
     @ColumnInfo(name = "Amount") val amount: Long
