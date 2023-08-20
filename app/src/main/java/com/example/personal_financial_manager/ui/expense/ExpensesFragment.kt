@@ -10,8 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.personal_financial_manager.R
 import com.example.personal_financial_manager.databinding.FragmentExpensesBinding
-import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ExpensesFragment : Fragment() {
 
     private var _binding: FragmentExpensesBinding? = null

@@ -1,8 +1,28 @@
 package com.example.personal_financial_manager.usecase.expenses
 
 import com.example.personal_financial_manager.data.ExpensesRepository
+import com.example.personal_financial_manager.data.local.entity.Expense
 import javax.inject.Inject
 
 class ExpensesUseCase @Inject constructor(private val repository: ExpensesRepository) {
 
+    suspend fun fetchExpenses(): List<Expense> {
+        return repository.fetchExpenses()
+    }
+
+    suspend fun insertExpense(expense: Expense): Long {
+        return repository.insertExpense(expense)
+    }
+
+    suspend fun updateExpenses(expense: Expense): Int {
+        return repository.updateExpense(expense)
+    }
+
+    suspend fun deleteExpenses(expense: Expense): Int {
+        return repository.deleteExpense(expense)
+    }
+
+    suspend fun deleteAllExpenses(): Int {
+        return repository.deleteAllExpense()
+    }
 }

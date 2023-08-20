@@ -4,18 +4,20 @@ ext {
     appcompatVersion = "1.6.1"
     materialVersion = "1.9.0"
     constraintLayoutVersion = "2.1.4"
-    fragmentKtxVersion = "1.5.7"
+    fragmentKtxVersion = "1.6.0"
 
     // Testing
     junitVersion = "4.13.2"
     extJunitVersion = "1.1.5"
     espressoVersion = "3.5.1"
+    junit5Version = "5.9.3"
+    mockitoVersion = "5.4.0"
 
     // Dependency Injection - Hilt
-    hiltVersion = "2.46"
+    hiltVersion = "2.46.1"
 
     // Navigation
-    navigationVersion = "2.5.3"
+    navigationVersion = "2.6.0"
 
     // DataStore
     datastoreVersion = "1.0.0"
@@ -28,4 +30,7 @@ ext {
 
     // Room
     roomVersion = "2.6.0-alpha02"
+
+    // java 8 support version
+    supportJava8Version = "2.0.3"
 }
