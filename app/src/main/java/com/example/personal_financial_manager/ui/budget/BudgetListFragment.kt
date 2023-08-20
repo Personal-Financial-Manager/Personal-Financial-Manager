@@ -49,6 +49,8 @@ class BudgetListFragment : Fragment() {
                 val editNameDialogFragment: AttentionDialog =
                     AttentionDialog.newInstance(it.errorTitle, it.errorDescription)
                 editNameDialogFragment.show(parentFragmentManager, "dialogFragmentAttention")
+            }else{
+                binding.etTotalBudgetAmount.isEnabled=false
             }
         }
     }
@@ -96,6 +98,11 @@ class BudgetListFragment : Fragment() {
     }
 
     private fun setOnClickListener() {
+        binding.tlTotalBudgetAmount.setEndIconOnClickListener {
+//            val editBudgetAmountDialogFragment: EditBudgetAmountDialogFragment =
+//                EditBudgetAmountDialogFragment.newInstance(it.errorTitle, it.errorDescription)
+//            editNameDialogFragment.show(parentFragmentManager, "dialogFragmentAttention")
+        }
         binding.fabAddBudgetPlan.setOnClickListener { }
         binding.btnBudgetingHistory.setOnClickListener { }
     }

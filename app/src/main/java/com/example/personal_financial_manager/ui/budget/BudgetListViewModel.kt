@@ -6,12 +6,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.personal_financial_manager.R
+import com.example.personal_financial_manager.data.BudgetPlanRepository
+import com.example.personal_financial_manager.data.TotalBudgetRepository
 import com.example.personal_financial_manager.data.enum.MessageShowingType
 import com.example.personal_financial_manager.data.enum.MoneyUnit
+import com.example.personal_financial_manager.data.local.entity.TotalBudgetEntity
 import com.example.personal_financial_manager.data.model.TotalBudget
+import com.example.personal_financial_manager.data.model.mapToTotalBudget
 import com.example.personal_financial_manager.di.JalalliCalendar1
-import com.example.personal_financial_manager.usecase.budget.BudgetPlanUseCase
-import com.example.personal_financial_manager.usecase.budget.TotalBudgetUseCase
 import com.example.personal_financial_manager.util.CalendarInterface
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -22,8 +24,8 @@ import javax.inject.Inject
 @HiltViewModel
 class BudgetListViewModel @Inject constructor(
     private val application: Application,
-    private val totalBudgetUseCase: TotalBudgetUseCase,
-    private val budgetPlanUseCase: BudgetPlanUseCase,
+    private val totalBudgetRepository: TotalBudgetRepository,
+    private val budgetPlanRepository: BudgetPlanRepository,
     @JalalliCalendar1 private val jalalliCalendarHelper: CalendarInterface,
 ) : ViewModel() {
 
@@ -33,7 +35,7 @@ class BudgetListViewModel @Inject constructor(
     private var _budgetValidationUiState = MutableLiveData<BudgetValidationState>()
     var budgetValidationUiState: LiveData<BudgetValidationState> = _budgetValidationUiState
 
-     var totalBudget: TotalBudget?=null
+    var totalBudget: TotalBudget? = null
     var sumOfBudgetPlanAmount: Long = 0L
 
     init {
@@ -44,13 +46,16 @@ class BudgetListViewModel @Inject constructor(
         viewModelScope.launch {
             val currentDateTime = jalalliCalendarHelper.getCurrentDateTime()
             totalBudget =
-                totalBudgetUseCase.getTotalBudgetForSpecificDate(currentDateTime.dateModel.year,
-                    currentDateTime.dateModel.month)
-            withContext(Dispatchers.Main) {
-                totalBudget?.let {
+                totalBudgetRepository.getTotalBudgetForSpecificDate(currentDateTime.dateModel.year,
+                    currentDateTime.dateModel.month)?.mapToTotalBudget()
+
+            totalBudget?.let {
+                sumOfBudgetPlanAmount = budgetPlanRepository.getSumOfBudgetPlanAmount(it.id)?:0
+                withContext(Dispatchers.Main) {
                     _budgetUiState.value = BudgetUiState(it.amount, jalalliCalendarHelper.getCurrentMonthName())
-                    sumOfBudgetPlanAmount = budgetPlanUseCase.getSumOfBudgetPlanAmount(it.id)
-                } ?: apply {
+                }
+            } ?: apply {
+                withContext(Dispatchers.Main) {
                     _budgetUiState.value = BudgetUiState(
                         0,
                         jalalliCalendarHelper.getCurrentMonthName(),
@@ -76,6 +81,17 @@ class BudgetListViewModel @Inject constructor(
                     application.getString(R.string.enter_total_budget_is_more_than_budget_plan,
                         updatedTotalBudget.toLong() - sumOfBudgetPlanAmount, MoneyUnit.TOMAN),
                     MessageShowingType.DIALOG)
+            updateTotalBudget(updatedTotalBudget)
+        } else {
+            _budgetValidationUiState.value = BudgetValidationState()
+        }
+    }
+
+    private fun updateTotalBudget(updatedTotalBudget: String) {
+        viewModelScope.launch {
+            totalBudgetRepository.updateTotalBudget(
+                TotalBudgetEntity(jalalliCalendarHelper.getCurrentDateTime().dateModel.year,
+                    jalalliCalendarHelper.getCurrentDateTime().dateModel.month, updatedTotalBudget.toLong()))
         }
     }
 

@@ -9,4 +9,8 @@ class TotalBudgetRepository @Inject constructor(private val totalBudgetDao: Tota
     suspend fun getTotalBudgetForSpecificDate(year: Int, month: Int): TotalBudgetEntity? {
        return totalBudgetDao.hasTotalBudgetForSpecificDate(year, month)
     }
+
+    suspend fun updateTotalBudget(totalBudgetEntity: TotalBudgetEntity){
+        totalBudgetDao.insertBudget(totalBudgetEntity)
+    }
 }
