@@ -25,4 +25,14 @@
     <string name="toman">تومان</string>
     <string name="dollar_sign">$</string>
     <string name="money_separator"><b>%,d</b> %s</string>
+    <string name="define_new_budget">تعیین بودجه جدید</string>
+    <string name="category">دسته بندی</string>
+    <string name="category_hint">مثلا: آرایشگاه</string>
+    <string name="select_icon">انتخاب آیکون</string>
+    <string name="enter_amount">مبلغ (%s)</string>
+    <string name="percent">%</string>
+    <string name="count">عدد</string>
+    <string name="amount_hint">مثال 10 درصد</string>
+    <string name="amount_higer_than_budget_error">مبلغ شما نمی تواند بیش از کل بودجه باشد</string>
+    <string name="save">ذخیره</string>
 </resources>
