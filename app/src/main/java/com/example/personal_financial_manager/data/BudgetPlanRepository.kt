@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 class BudgetPlanRepository @Inject constructor(private val budgetPlanDao: BudgetPlanDao) {
 
-    suspend fun getSumOfBudgetPlanAmount(totalBudgetId: Int):Long {
+    suspend fun getSumOfBudgetPlanAmount(totalBudgetId: Int):Long? {
         return budgetPlanDao.getSumOfBudgetPlanAmount(totalBudgetId)
     }
 }

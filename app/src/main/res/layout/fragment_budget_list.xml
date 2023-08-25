@@ -56,6 +56,7 @@
                 app:boxStrokeColor="@color/white"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
+                app:hintEnabled="false"
                 app:endIconDrawable="@drawable/ic_edit"
                 app:endIconMode="custom"
                 app:endIconTint="@color/black"
@@ -65,7 +66,8 @@
                     android:id="@+id/etTotalBudgetAmount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:imeOptions="actionDone" />
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionGo" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

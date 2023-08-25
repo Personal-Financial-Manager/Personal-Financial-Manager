@@ -13,5 +13,5 @@ interface BudgetPlanDao {
     suspend fun insertBudget(budgetPlanEntity: BudgetPlanEntity)
 
     @Query("Select Sum(Amount) From budgetplanentity where BudgetMainFk = :budgetMainFk")
-    suspend fun getSumOfBudgetPlanAmount(budgetMainFk: Int): Long
+    suspend fun getSumOfBudgetPlanAmount(budgetMainFk: Int): Long?
 }
