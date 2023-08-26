@@ -16,6 +16,10 @@ android {
         enabled = true
     }
 
+    buildFeatures {
+        viewBinding true
+    }
+
     defaultConfig {
         applicationId "com.example.personal_financial_manager"
         minSdk 21
