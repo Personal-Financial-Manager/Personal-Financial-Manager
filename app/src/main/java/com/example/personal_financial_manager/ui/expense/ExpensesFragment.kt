@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.personal_financial_manager.R
 import com.example.personal_financial_manager.databinding.FragmentExpensesBinding
+import com.example.personal_financial_manager.ui.TAG
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -42,6 +43,7 @@ class ExpensesFragment : Fragment() {
     private fun initOnClickListeners() {
         binding.fabExpenses.setOnClickListener {
             Toast.makeText(requireContext(), "Test", Toast.LENGTH_SHORT).show()
+            AddExpenseBottomSheetFragment().show(childFragmentManager, TAG)
         }
     }
 
