@@ -10,9 +10,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.personal_financial_manager.R
+import com.example.personal_financial_manager.data.*
 import com.example.personal_financial_manager.data.enum.MoneyUnit
 import com.example.personal_financial_manager.databinding.FragmentBudgetListBinding
 import com.example.personal_financial_manager.ui.commondialog.AttentionDialog
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -41,6 +43,10 @@ class BudgetListFragment : Fragment() {
         observePageDetail()
         observeBudgetValidation()
         setupMonth()
+        binding.fabAddBudgetPlan.setOnClickListener {
+            val bottomSheetDialog = AddBudgetBottomSheet()
+            bottomSheetDialog.show(requireActivity().supportFragmentManager, "")
+        }
     }
 
     private fun observeBudgetValidation() {
@@ -49,8 +55,8 @@ class BudgetListFragment : Fragment() {
                 val editNameDialogFragment: AttentionDialog =
                     AttentionDialog.newInstance(it.errorTitle, it.errorDescription)
                 editNameDialogFragment.show(parentFragmentManager, "dialogFragmentAttention")
-            }else{
-                binding.etTotalBudgetAmount.isEnabled=false
+            } else {
+                binding.etTotalBudgetAmount.isEnabled = false
             }
         }
     }
