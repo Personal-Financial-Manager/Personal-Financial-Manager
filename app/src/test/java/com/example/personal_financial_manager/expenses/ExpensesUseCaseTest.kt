@@ -2,7 +2,7 @@ package com.example.personal_financial_manager.expenses
 
 import com.example.personal_financial_manager.data.ExpensesRepository
 import com.example.personal_financial_manager.data.local.entity.Expense
-import com.example.personal_financial_manager.usecase.expenses.ExpensesUseCase
+import com.example.personal_financial_manager.domain.expenses.ExpensesUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
