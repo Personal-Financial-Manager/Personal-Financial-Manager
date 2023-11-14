@@ -1,11 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.PersonalFinancialManager" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/yellow_mustard</item>
-        <item name="android:textColorPrimary">@color/black</item>
-        <item name="android:textColorSecondary">@color/silver_sonic</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/secondaryTextColor</item>
         <item name="fontFamily">@font/app_font</item>
         <item name="materialButtonStyle">@style/App.Btn.Solid</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
     </style>
 
     <style name="App.Btn.Solid" parent="Widget.MaterialComponents.Button.UnelevatedButton">
